@@ -1,0 +1,4 @@
+kvp_backend:
+    resource: "@KVPBackendBundle/Controller/"
+    type:     annotation
+    prefix:   /
