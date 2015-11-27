@@ -1,0 +1,7 @@
+tickets:
+    type: rest
+    resource: "@KVPBackendBundle/Controller/TicketsController.php"
+comments:
+    type: rest
+    parent: tickets
+    resource: "@KVPBackendBundle/Controller/CommentsController.php"
