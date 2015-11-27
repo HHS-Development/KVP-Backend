@@ -10,29 +10,8 @@ Travis CI build state: [![Build Status](https://travis-ci.org/HHS-Development/KV
 6. Configure your web server to point to the web directory of the project
 
 ## Restful routes
+[![Restful routes](http://i.epvpimg.com/jHlxe.png)]
 
-### Ticket routes
-* GET /tickets Get all tickets
-* POST /tickets 
-
-
-* GET /tickets/{id}
-* PUT /tickets/{id}
-* DELETE /tickets/{id}
-
-
-* POST /tickets/{id}/vote
-* DELETE /tickets/{id}/vote
-
-
-* POST /tickets/{id}/comment
-* PUT /tickets/{id}/comment/{id}
-* DELETE /tickets/{id}/comment/{id}
-
-
-* PUT /tickets/{id}/state
-
-### User management routes
 
 
 
