@@ -10,4 +10,4 @@ before_script:
   - php app/console cache:warmup --env dev
 
 script:
-  - phpunit -c app
+  - phpunit --bootstrap app/bootstrap.php.cache --configuration app/phpunit.xml
