@@ -5,3 +5,6 @@ comments:
     type: rest
     parent: tickets
     resource: "@KVPBackendBundle/Controller/CommentsController.php"
+permissions:
+    type: rest
+    resource: "@KVPBackendBundle/Controller/PermissionsController.php"
