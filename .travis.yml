@@ -3,9 +3,11 @@ php:
   - 5.6
 before_script:
   - cp app/config/parameters.yml.travis app/config/parameters.yml
+  - cp app/phpunit.xml.travis app/phpunit.xml
   - composer install
   - php app/console doctrine:database:create --env=test
   - php app/console doctrine:schema:create --env=test
+  - php app/console cache:warmup --env dev
 
 script:
   - phpunit -c app
