@@ -1,29 +1,36 @@
 # KVP-Backend
 
-[![Build Status](https://travis-ci.org/HHS-Development/KVP-Backend.svg?branch=master)](https://travis-ci.org/HHS-Development/KVP-Backend)
+Travis CI build state: [![Build Status](https://travis-ci.org/HHS-Development/KVP-Backend.svg?branch=master)](https://travis-ci.org/HHS-Development/KVP-Backend)
+## Setup
+1. Checkout the repository
+2. Run composer install
+3. Run php app/console doctrine:database:create
+4. Run php app/console doctrine:schema:create
+5. Run php app/console cache:warmup
+6. Configure your web server to point to the web directory of the project
 
 ## Restful routes
 
 ### Ticket routes
-* GET /ticket Get all tickets
-* POST /ticket 
+* GET /tickets Get all tickets
+* POST /tickets 
 
 
-* GET /ticket/{id}
-* PUT /ticket/{id}
-* DELETE /ticket/{id}
+* GET /tickets/{id}
+* PUT /tickets/{id}
+* DELETE /tickets/{id}
 
 
-* POST /ticket/{id}/vote
-* DELETE /ticket/{id}/vote
+* POST /tickets/{id}/vote
+* DELETE /tickets/{id}/vote
 
 
-* POST /ticket/{id}/comment
-* PUT /tickets{id}/comment/{id}
-* DELETE /tickets{id}/comment/{id}
+* POST /tickets/{id}/comment
+* PUT /tickets/{id}/comment/{id}
+* DELETE /tickets/{id}/comment/{id}
 
 
-* PUT /ticket/{id}/state
+* PUT /tickets/{id}/state
 
 ### User management routes
 
