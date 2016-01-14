@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 /**
@@ -30,7 +29,7 @@ class TicketComment {
     protected $id;
 
     /**
-     * @Column(type="text")
+     * @Column(name="message", type="text")
      */
     protected $message;
 
@@ -52,7 +51,7 @@ class TicketComment {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getMessage()
     {
@@ -60,7 +59,7 @@ class TicketComment {
     }
 
     /**
-     * @param mixed $message
+     * @param string $message
      */
     public function setMessage($message)
     {

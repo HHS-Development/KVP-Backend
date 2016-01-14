@@ -21,28 +21,28 @@ class User {
 
     /**
      * @Id()
-     * @Column(type="integer")
+     * @Column(name="id",type="integer")
      * @GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @Column(type="string", length=255)
+     * @Column(name="forename", type="string", length=255)
      */
     protected $forename;
 
     /**
-     * @Column(type="string", length=255)
+     * @Column(name="surname", type="string", length=255)
      */
     protected $surname;
 
     /**
-     * @Column(type="string", length=255)
+     * @Column(name="email", type="string", length=255)
      */
     protected $email;
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getId()
     {
@@ -50,7 +50,7 @@ class User {
     }
 
     /**
-     * @param mixed $id
+     * @param integer $id
      */
     public function setId($id)
     {
@@ -58,7 +58,7 @@ class User {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getForename()
     {
@@ -66,7 +66,7 @@ class User {
     }
 
     /**
-     * @param mixed $forename
+     * @param string $forename
      */
     public function setForename($forename)
     {
@@ -74,7 +74,7 @@ class User {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSurname()
     {
@@ -82,7 +82,7 @@ class User {
     }
 
     /**
-     * @param mixed $surname
+     * @param string $surname
      */
     public function setSurname($surname)
     {
@@ -90,7 +90,7 @@ class User {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -98,7 +98,7 @@ class User {
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {

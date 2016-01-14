@@ -88,7 +88,7 @@ fos_rest:
     view:
         view_response_listener: 'force'
         formats:
-            xml: true
+            xml: false
             json : true
         templating_formats:
             html: true
