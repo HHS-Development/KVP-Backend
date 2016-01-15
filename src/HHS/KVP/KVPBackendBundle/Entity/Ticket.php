@@ -35,6 +35,11 @@ class Ticket {
     protected $creator;
 
     /**
+     * @ManyToOne(targetEntity="HHS\KVP\KVPBackendBundle\Entity\TicketState")
+     */
+    protected $state;
+
+    /**
      * @Column(name="content", type="text")
      */
     protected $content;
@@ -98,5 +103,38 @@ class Ticket {
     {
         $this->comments = $comments;
     }
+
+    /**
+     * @return TicketState
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param TicketState $state
+     */
+    public function setState(TicketState $state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
 
 }
