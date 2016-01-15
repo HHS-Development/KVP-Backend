@@ -27,6 +27,11 @@ class User {
     protected $id;
 
     /**
+     * @Column(name="username", type="string")
+     */
+    protected $username;
+
+    /**
      * @Column(name="forename", type="string", length=255)
      */
     protected $forename;
@@ -105,6 +110,19 @@ class User {
         $this->email = $email;
     }
 
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
 
-
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }

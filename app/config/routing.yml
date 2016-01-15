@@ -1,4 +1,4 @@
 kvp_backend:
     resource: "@KVPBackendBundle/Resources/config/api-routing.yml"
     type:     rest
-    prefix:   /
+    prefix:   /api

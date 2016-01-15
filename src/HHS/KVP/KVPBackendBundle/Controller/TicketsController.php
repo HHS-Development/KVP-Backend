@@ -10,24 +10,28 @@ use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Put;
 use FOS\RestBundle\Controller\FOSRestController;
-use HHS\KVP\KVPBackendBundle\Model\Ticket;
+use HHS\KVP\KVPBackendBundle\Entity\Ticket;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Intl\Exception\NotImplementedException;
 
 /**
  * Class TicketsController
  * @package HHS\KVP\KVPBackendBundle\Controller
+ * @Security("has_role('ROLE_USER')")
  */
 class TicketsController extends FOSRestController {
 
     /**
-     * @ApiDoc(resource=true, description="Get all existing tickets")
+     * @ApiDoc(resource=true, description="Get all existing tickets", output="HHS\KVP\KVPBackendBundle\Entity\Ticket")
      * @Get("/tickets")
      * @return Response
      */
     public function getTicketsAction(){
-        $ticket = new Ticket(1, "test");
-        $view = $this->view($ticket, 200);
+        $repo = $this->getDoctrine()->getEntityManager()->getRepository("KVPBackendBundle:Ticket");
+        $tickets = $repo->findAll();
+        $view = $this->view($tickets);
         return $this->handleView($view);
     }
 
@@ -38,7 +42,7 @@ class TicketsController extends FOSRestController {
      * @return Response
      */
     public function getTicketAction($id){
-
+        throw new NotImplementedException("");
     }
 
     /**

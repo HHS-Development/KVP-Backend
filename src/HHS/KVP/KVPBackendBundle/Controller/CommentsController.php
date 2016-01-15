@@ -10,8 +10,14 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Put;
 use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class CommentsController
+ * @package HHS\KVP\KVPBackendBundle\Controller
+ * @Security("has_role('ROLE_USER')")
+ */
 class CommentsController extends FOSRestController
 {
     /**

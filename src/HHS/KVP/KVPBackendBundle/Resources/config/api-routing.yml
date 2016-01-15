@@ -8,3 +8,6 @@ comments:
 permissions:
     type: rest
     resource: "@KVPBackendBundle/Controller/PermissionsController.php"
+authentication:
+    type: rest
+    resource: "@KVPBackendBundle/Controller/AuthenticationController.php"
