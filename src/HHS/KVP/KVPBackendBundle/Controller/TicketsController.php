@@ -19,7 +19,6 @@ use Symfony\Component\Intl\Exception\NotImplementedException;
 /**
  * Class TicketsController
  * @package HHS\KVP\KVPBackendBundle\Controller
- * @Security("has_role('ROLE_USER')")
  */
 class TicketsController extends FOSRestController {
 
@@ -47,6 +46,7 @@ class TicketsController extends FOSRestController {
 
     /**
      * @ApiDoc(resource=true, description="Create a new ticket")
+     * @Security("has_role('ROLE_USER')")
      * @Post("/tickets")
      * @return Response
      */
@@ -56,6 +56,7 @@ class TicketsController extends FOSRestController {
 
     /**
      * @ApiDoc(resource=true, description="Updates an existing ticket by id")
+     * @Security("has_role('ROLE_USER')")
      * @Put("/tickets/{id}")
      * @param $id ticket id
      * @return Response
@@ -66,6 +67,7 @@ class TicketsController extends FOSRestController {
 
     /**
      * @ApiDoc(resource=true, description="Deletes an existing ticket by id")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Delete("/tickets/{id}")
      * @param $id
      * @return Response

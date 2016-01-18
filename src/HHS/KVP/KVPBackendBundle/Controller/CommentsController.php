@@ -16,12 +16,12 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class CommentsController
  * @package HHS\KVP\KVPBackendBundle\Controller
- * @Security("has_role('ROLE_USER')")
  */
 class CommentsController extends FOSRestController
 {
     /**
      * @ApiDoc(resource=true, description="Create a new comment for the given ticket")
+     * @Security("has_role('ROLE_USER')")
      * @Post("/tickets/{ticketId}/comments/{commentId}")
      * @param $ticketId
      * @param $commentId
@@ -34,6 +34,7 @@ class CommentsController extends FOSRestController
 
     /**
      * @ApiDoc(resource=true, description="Updates an existing ticket by the id")
+     * @Security("has_role('ROLE_USER')")
      * @Put("/tickets/{ticketId}/comments/{commentId}")
      * @param $ticketId
      * @param $commentId
@@ -45,6 +46,7 @@ class CommentsController extends FOSRestController
 
     /**
      * @ApiDoc(resource=true, description="Deletes an existing ticket by the id")
+     * @Security("has_role('ROLE_USER')")
      * @Delete("/tickets/{ticketId}/comments/{commentId}")
      * @param $ticketId
      * @param $commentId

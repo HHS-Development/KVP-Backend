@@ -16,13 +16,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * Class AuthenticationController
  * @package HHS\KVP\KVPBackendBundle\Controller
- * @Security("has_role('ROLE_USER')")
  */
 class AuthenticationController extends FOSRestController
 {
 
     /**
      * @ApiDoc(resource=true, description="Validates the basic authentication user data", output="HHS\KVP\KVPBackendBundle\Entity\User")
+     * @Security("has_role('ROLE_USER')")
      * @Get("/authentication")
      * @return Response
      */

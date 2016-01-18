@@ -16,12 +16,12 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class UserManagementController
  * @package HHS\KVP\KVPBackendBundle\Controller
- * @Security("has_role('ROLE_ADMIN')")
  */
 class PermissionsController extends FOSRestController {
 
     /**
      * @ApiDoc(resource=true, description="Grants an existing user admin permissions")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Get("/permissions/{userId}")
      * @param $userId
      * @return Response
@@ -33,6 +33,7 @@ class PermissionsController extends FOSRestController {
 
     /**
      * @ApiDoc(resource=true, description="Deletes the user admin permission for an given user id")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Delete("/permissions/{userId}")
      * @param $userID
      * @return Response
