@@ -5,7 +5,6 @@
 
 namespace HHS\KVP\KVPBackendBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -44,13 +43,6 @@ class TicketComment {
     protected $user;
 
     /**
-     * TicketComment constructor.
-     */
-    public function __construct() {
-        $this->user = new ArrayCollection();
-    }
-
-    /**
      * @return string
      */
     public function getMessage()
@@ -80,5 +72,21 @@ class TicketComment {
     public function setUser(User $user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTicket()
+    {
+        return $this->ticket;
+    }
+
+    /**
+     * @param string $ticket
+     */
+    public function setTicket($ticket)
+    {
+        $this->ticket = $ticket;
     }
 }
