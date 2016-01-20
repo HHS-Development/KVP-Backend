@@ -10,7 +10,7 @@ Travis CI build state: [![Build Status](https://travis-ci.org/HHS-Development/KV
 6. Configure your web server to point to the web directory of the project
 
 ## Restful routes
-[![Restful routes](http://i.epvpimg.com/jHlxe.png)](http://i.epvpimg.com/jHlxe.png)
+[![Restful routes](http://i.epvpimg.com/mKQlb.png)](http://i.epvpimg.com/mKQlb.png)
 
 
 
