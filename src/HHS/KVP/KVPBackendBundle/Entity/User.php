@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
-use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * Class User
@@ -18,7 +17,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
  * @Entity()
  * @Table(name="user")
  */
-class User extends BaseUser {
+class User {
 
     /**
      * @Id()
@@ -26,6 +25,16 @@ class User extends BaseUser {
      * @GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @Column(name="username", type="string", length=255)
+     */
+    protected $username;
+
+    /**
+     * @Column(name="email", type="string", length=255)
+     */
+    protected $email;
 
     /**
      * @Column(name="forename", type="string", length=255)
@@ -47,7 +56,6 @@ class User extends BaseUser {
      */
     public function __construct($username = null, $forename = null, $surname = null, $email = null)
     {
-        parent::__construct();
         $this->username = $username;
         $this->forename = $forename;
         $this->surname = $surname;
@@ -101,4 +109,46 @@ class User extends BaseUser {
     {
         $this->surname = $surname;
     }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function unserialize(){
+
+    }
+
+    public function serialize(){
+
+    }
+
+
 }

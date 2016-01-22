@@ -20,8 +20,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/rest-bundle": "1.7.7",
         "jms/serializer-bundle": "^1.1",
-        "fr3d/ldap-bundle": "2.0.*",
-        "friendsofsymfony/user-bundle": "v1.3.6"
+        "imag/ldap-bundle": "v2.3.1"
     },
     "require-dev": {
         "nelmio/api-doc-bundle": "2.10.*",

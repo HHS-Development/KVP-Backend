@@ -1,17 +1,11 @@
 security:
+
     encoders:
-        AcmeBundle\Acme\User\LdapUser: md5
+        IMAG\LdapBundle\User\LdapUser: md5
 
     providers:
-        chain_provider:
-            chain:
-                providers: fr3d_ldapbundle
-
-        fr3d_ldapbundle:
-            id: fr3d_ldap.security.user.provider
-
-        #fos_userbundle:
-        #    id: fos_user.user_provider.username
+        ldap:
+            id: imag_ldap.security.user.provider
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
@@ -21,4 +15,28 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            fr3d_ldap_httpbasic: ~
+            imag_ldap: ~
+            http_basic: ~
+
+imag_ldap:
+    client:
+        host: 172.20.10.7
+        port: 389
+        version: 3 # Optional
+        username: cn=admin,dc=test,dc=com
+        password: admin # Optional
+        #network_timeout: 10 # Optional
+        #referrals_enabled: true # Optional
+        #bind_username_before: true # Optional
+        skip_roles: false # Optional
+
+    user:
+        base_dn: ou=People,dc=test,dc=com
+        filter: (&(ObjectClass=Person)) #Optional
+        name_attribute: uid
+    role:
+        base_dn: ou=group,dc=test,dc=com
+        #filter: (ou=group) #Optional
+        name_attribute: cn
+        user_attribute: memberUid
+        user_id: username

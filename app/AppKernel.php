@@ -19,8 +19,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new HHS\KVP\KVPBackendBundle\KVPBackendBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new FR3D\LdapBundle\FR3DLdapBundle(),
+            new IMAG\LdapBundle\IMAGLdapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
