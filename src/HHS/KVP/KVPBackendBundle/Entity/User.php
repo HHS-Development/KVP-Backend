@@ -47,6 +47,21 @@ class User {
     protected $email;
 
     /**
+     * User constructor.
+     * @param $username
+     * @param $forename
+     * @param $surname
+     * @param $email
+     */
+    public function __construct($username = null, $forename = null, $surname = null, $email = null)
+    {
+        $this->username = $username;
+        $this->forename = $forename;
+        $this->surname = $surname;
+        $this->email = $email;
+    }
+
+    /**
      * @return integer
      */
     public function getId()
