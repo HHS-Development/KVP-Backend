@@ -11,10 +11,11 @@ use FOS\RestBundle\Controller\Annotations\Post;
 use FOS\RestBundle\Controller\Annotations\Put;
 use FOS\RestBundle\Controller\FOSRestController;
 use HHS\KVP\KVPBackendBundle\Entity\Ticket;
+use HHS\KVP\KVPBackendBundle\Form\TicketType;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Intl\Exception\NotImplementedException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class TicketsController
@@ -28,7 +29,7 @@ class TicketsController extends FOSRestController {
      * @return Response
      */
     public function getTicketsAction(){
-        $repo = $this->getDoctrine()->getEntityManager()->getRepository("KVPBackendBundle:Ticket");
+        $repo = $this->getDoctrine()->getRepository("KVPBackendBundle:Ticket");
         $tickets = $repo->findAll();
         $view = $this->view($tickets);
         return $this->handleView($view);
@@ -36,12 +37,17 @@ class TicketsController extends FOSRestController {
 
     /**
      * @ApiDoc(resource=true, description="Get an existing ticket by id")
-     * @Get("/tickets/{id}")
-     * @param $id ticket id
+     * @Get("/tickets/{ticketId}")
+     * @param $ticketId ticket id
      * @return Response
      */
-    public function getTicketAction($id){
-        throw new NotImplementedException("");
+    public function getTicketAction($ticketId){
+        $ticket = $this->getDoctrine()->getRepository("KVPBackendBundle:Ticket")->find($ticketId);
+        if(empty($ticket)){
+            return new NotFoundHttpException("There is no ticket with the given id");
+        }
+        $view = $this->view($ticket);
+        return $this->handleView($view);
     }
 
     /**
@@ -52,6 +58,19 @@ class TicketsController extends FOSRestController {
      */
     public function postTicketAction(){
 
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("KVPBackendBundle:User")->findOneBy(array("username" => $this->getUser()->getUsername()));
+
+        $ticket = new Ticket();
+        $ticket->setCreator($user);
+
+        $form = $this->createForm(new TicketType(), $ticket);
+
+        if($form->isValid()){
+
+        } else {
+
+        }
     }
 
     /**
