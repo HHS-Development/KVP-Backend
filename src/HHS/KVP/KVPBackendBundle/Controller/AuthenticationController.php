@@ -7,11 +7,9 @@ namespace HHS\KVP\KVPBackendBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\FOSRestController;
-use HHS\KVP\KVPBackendBundle\Entity\User;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class AuthenticationController
@@ -28,11 +26,12 @@ class AuthenticationController extends FOSRestController
      */
     public function getUserDataAction(){
         $user = $this->get('security.token_storage')->getToken()->getUser();
-        $dbUser = $this->getDoctrine()->getRepository("KVPBackendBundle:User")->findBy(array("username" => $user->getUsername()));
-        if(empty($dbUser)){
-            throw new NotFoundHttpException("Useraccount not found");
-        }
-        $view = $this->view($dbUser, 200);
+        $em = $this->getDoctrine()->getManager();
+        var_dump($user);
+        $em->persist($user);
+        $em->flush();
+
+        $view = $this->view($user, 200);
         return $this->handleView($view);
     }
 }

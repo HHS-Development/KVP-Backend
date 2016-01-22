@@ -106,3 +106,34 @@ fos_rest:
         enabled: true
         validate: true
         validation_errors_argument: validationErrors # This is the default value
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: HHS\KVP\KVPBackendBundle\Entity\User
+
+
+fr3d_ldap:
+    driver:
+        host: 172.20.10.7
+        port: 389
+        username: cn=admin,dc=test,dc=com
+        password: admin
+        bindRequiresDn: true
+        baseDn: dc=test,dc=com   # Optional
+#       accountFilterFormat: (&(uid=%s)) # Optional. sprintf format %s will be the username
+#       optReferrals:        false  # Optional
+#       useSsl:              true   # Enable SSL negotiation. Optional
+#       useStartTls:         true   # Enable TLS negotiation. Optional
+#       accountCanonicalForm: 3 # ACCTNAME_FORM_BACKSLASH this is only needed if your users have to login with something like HOST\User
+#       accountDomainName: HOST
+#       accountDomainNameShort: HOST # if you use the Backslash form set both to Hostname than the Username will be converted to HOST\User
+    user:
+        baseDn: ou=People,dc=test,dc=com
+        #filter: (uid={username})
+        attributes:
+           - { ldap_attr: uid, user_method: setUsername }
+           - { ldap_attr: sn, user_method: setSurname }
+           - { ldap_attr: givenName, user_method: setForename }
+           - { ldap_attr: mail, user_method: setEmail }
+           - { ldap_attr: userPassword, user_method: setPassword }
