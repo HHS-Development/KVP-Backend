@@ -20,7 +20,7 @@ class AuthenticationController extends FOSRestController
 
     /**
      * @ApiDoc(resource=true, description="Validates the basic authentication user data", output="HHS\KVP\KVPBackendBundle\Entity\User")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_LEHRER')")
      * @Get("/authentication")
      * @return Response
      */
@@ -28,8 +28,8 @@ class AuthenticationController extends FOSRestController
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         var_dump($user);
-        $em->persist($user);
-        $em->flush();
+        #$em->persist($user);
+        #$em->flush();
 
         $view = $this->view($user, 200);
         return $this->handleView($view);
