@@ -17,3 +17,12 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    ldap_host:
+    ldap_port:
+    ldap_username:
+    ldap_password:
+    ldap_bind_requires_dn:
+    ldap_base_dn:
+    ldap_user_base_dn:
+    ldap_group_base_dn:
