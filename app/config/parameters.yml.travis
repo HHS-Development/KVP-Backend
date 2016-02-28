@@ -13,9 +13,9 @@ parameters:
 
     ldap_host: 127.0.0.1
     ldap_port: 3389
-    ldap_username:
-    ldap_password:
-    ldap_bind_requires_dn:
-    ldap_base_dn:
-    ldap_user_base_dn:
-    ldap_group_base_dn:
+    ldap_username: "cn=admin,dc=example,dc=com"
+    ldap_password: "test"
+    ldap_bind_requires_dn: true
+    ldap_base_dn: "dc=example,dc=com"
+    ldap_user_base_dn: "cn=admin,dc=example,dc=com"
+    ldap_group_base_dn: "cn=admin,dc=example,dc=com"
