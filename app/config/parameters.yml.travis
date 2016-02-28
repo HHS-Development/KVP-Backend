@@ -10,3 +10,12 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: xprZiJ0ZAGwmM2nB8HTwLKw6j5QxKAzE189b8fds
+
+    ldap_host: 127.0.0.1
+    ldap_port: 3389
+    ldap_username:
+    ldap_password:
+    ldap_bind_requires_dn:
+    ldap_base_dn:
+    ldap_user_base_dn:
+    ldap_group_base_dn:
