@@ -15,6 +15,7 @@ use HHS\KVP\KVPBackendBundle\Form\TicketType;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -57,7 +58,6 @@ class TicketsController extends FOSRestController {
      * @return Response
      */
     public function postTicketAction(){
-
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository("KVPBackendBundle:User")->findOneBy(array("username" => $this->getUser()->getUsername()));
 
@@ -67,9 +67,10 @@ class TicketsController extends FOSRestController {
         $form = $this->createForm(new TicketType(), $ticket);
 
         if($form->isValid()){
-
+            $em->persist($this);
+            $em->flush();
         } else {
-
+            throw new BadRequestHttpException();
         }
     }
 
@@ -92,6 +93,15 @@ class TicketsController extends FOSRestController {
      * @return Response
      */
     public function deleteTicketAction($id){
-
+        $ticket = $this->getDoctrine()->getRepository("KVPBackendBundle:Ticket")->findOneBy(array("id" => $id));
+        $em = $this->getDoctrine()->getManager();
+        if(!empty($ticket)){
+            $em->remove($ticket);
+            $em->flush();
+            $view = $this->view($ticket);
+            return $this->handleView($view);
+        } else {
+            throw new BadRequestHttpException();
+        }
     }
 }
