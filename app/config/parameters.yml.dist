@@ -26,3 +26,10 @@ parameters:
     ldap_base_dn:
     ldap_user_base_dn:
     ldap_group_base_dn:
+
+    ldap_value_uid:
+    ldap_value_mail:
+    ldap_value_forename:
+    ldap_value_surname:
+    ldap_value_password:
+    ldap_value_group_name:

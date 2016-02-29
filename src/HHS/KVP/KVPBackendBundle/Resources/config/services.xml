@@ -5,6 +5,8 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="hhs.kvp.user_hydrator" class="HHS\KVP\KVPBackendBundle\Ldap\LdapHydrator"/>
+        <service id="hhs.kvp.user_hydrator" class="HHS\KVP\KVPBackendBundle\Ldap\LdapHydrator">
+            <argument type="service" id="service_container" />
+        </service>
     </services>
 </container>

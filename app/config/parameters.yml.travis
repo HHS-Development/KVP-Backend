@@ -19,3 +19,10 @@ parameters:
     ldap_base_dn: "dc=example,dc=com"
     ldap_user_base_dn: "cn=admin,dc=example,dc=com"
     ldap_group_base_dn: "cn=admin,dc=example,dc=com"
+
+    ldap_value_uid: "uid"
+    ldap_value_mail: "mail"
+    ldap_value_forename: "givenname"
+    ldap_value_surname: "sn"
+    ldap_value_password: "userpassword"
+    ldap_value_group_name: "cn"
